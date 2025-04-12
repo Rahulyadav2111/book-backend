@@ -5,10 +5,13 @@ const cors = require('cors');
 const User = require('./models/User');
 const Book = require('./models/Book')
 
-
+const corsOptions = {
+    origin: 'https://book-frontend-six-plum.vercel.app', 
+    credentials: true,
+  };
 
 const app = express();
-app.use(cors())
+app.use(cors(corsOptions))
 app.use(express.json());
 const PORT = 5000;
 mongoose.connect(process.env.MONGODB_URI,{
